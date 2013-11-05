@@ -1,0 +1,39 @@
+<html>
+<head>
+	<!-- <link rel="stylesheet" type="text/css" href="estilo.css" /> -->
+	<style type="text/css">
+		table {
+			margin: 0;
+			border-collapse: collapse;
+		}
+
+		td {
+			padding: .3em;
+			border: 1px #ccc solid;
+			width: 200px;
+			background-color: #D4EF99;
+		}
+	</style>
+</head>
+<body>
+<h1>Carros</h1>
+	<table>
+		<tr>
+			<td>Marca</td>
+			<td>Modelo</td>
+			<td>Veículo</td>
+			<td>Preço</td>
+		</tr>
+	</table>
+{% for current in carros %}
+	<table>
+		<tr>
+			<td>{{current.marca}}</td>
+			<td>{{current.modelo}}</td>
+			<td>{{current.veiculo}}</td>
+			<td>{{current.preco}}</td>
+		</tr>
+	</table>
+{% endfor %}
+</body>
+</html>
