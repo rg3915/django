@@ -23,7 +23,7 @@
 %\hypersetup{pdfpagemode=FullScreen}
 
 % Layout da p\'agina
-\hypersetup{pdfpagelayout=SinglePage}
+\hypersetup{pdfpagelayout=SinglePage,urlcolor=blue,colorlinks=true}
 
 \title[\sc{Django}]{Django + Python}
 \author{R\'egis da Silva\\ e\\ Jos\'e Aciole}
@@ -247,15 +247,15 @@ Tags
 
 \begin{frame}[fragile]\frametitle{Sintaxe mais completa}
 \begin{minted}[bgcolor=green!10]{python}
-\{\% tag \%\}
+{% tag %}
 	...
-\{\% endtag \%\}
+{% endtag %}
 \end{minted}
 
 Coment\'arios
 
 \begin{minted}[bgcolor=green!10]{python}
-\{\# coment\'ario \#\}
+{# comentario #}
 \end{minted}
 \end{frame}
 
@@ -274,6 +274,13 @@ Coment\'arios
 	</table>
 {% endfor %}
 	\end{minted}
+\end{frame}
+
+\begin{frame}\frametitle{Exibindo dados}
+	\begin{figure}[h]
+	  \centering
+  		\includegraphics[height=.5\paperheight]{figuras/pagina}
+	\end{figure}
 \end{frame}
 
 \begin{frame}\frametitle{Forms}
@@ -330,7 +337,8 @@ Coment\'arios
 \end{frame}
 
 \begin{frame}\frametitle{Obrigado}
-	%\url{}
+	\centering
+	\url{https://github.com/rg3915/django}
 \end{frame}
 
 \end{document}
