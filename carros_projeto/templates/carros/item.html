@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block corpo %}
+
+<h1>Carros</h1>
+	<table>
+		<tr>
+			<td>Marca</td>
+			<td>Modelo</td>
+			<td>Veículo</td>
+			<td>Preço</td>
+		</tr>
+	</table>
+
+	<table>
+		<tr>
+			<td>{{ item.marca }}</td>
+			<td>{{ item.modelo }}</td>
+			<td>{{ item.veiculo }}</td>
+			<td>{{ item.preco }}</td>
+		</tr>
+	</table>
+
+{% endblock %}
