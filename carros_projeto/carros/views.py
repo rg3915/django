@@ -13,9 +13,8 @@ from carros.forms import FormCarro
 
 def lista(request):
 	lista_itens = Carro.objects.all()
-	return render_to_response('lista.html',{
-		'carros': lista_itens
-		})
+	return render_to_response('lista.html', {'carros': lista_itens},
+		context_instance=RequestContext(request))
 
 def adiciona(request):
 	if request.method == 'POST':
@@ -30,5 +29,6 @@ def adiciona(request):
 
 def item(request, nr_item):
 	item = get_object_or_404(Carro, pk=nr_item)
-	return render_to_response("item.html", {'item': item})
+	return render_to_response("item.html", {'item': item},
+		context_instance=RequestContext(request))
 
