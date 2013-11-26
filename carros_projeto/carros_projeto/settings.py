@@ -1,6 +1,7 @@
 # Django settings for carros_projeto project.
 import os, sys
-PROJECT_ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
+#PROJECT_ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -63,7 +64,8 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = ''
+
+STATIC_ROOT = ""
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -71,7 +73,8 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT_PATH, 'static'),
+    #os.path.join(PROJECT_ROOT_PATH, 'static')
+    os.path.join(BASE_DIR, 'static'),
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -111,7 +114,7 @@ ROOT_URLCONF = 'carros_projeto.urls'
 WSGI_APPLICATION = 'carros_projeto.wsgi.application'
 
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_ROOT_PATH, '../templates/carros'),
+    os.path.join(BASE_DIR, 'templates/carros'),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
