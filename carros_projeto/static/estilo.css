@@ -1,6 +1,8 @@
 table {
 	margin: 0;
 	border-collapse: collapse;
+}
+
 td {
 	padding: .3em;
 	border: 1px #ccc solid;
