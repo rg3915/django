@@ -1,4 +1,4 @@
-from carros.models import Carro
+from carros.models import Carros
 from django.contrib import admin
 
-admin.site.register(Carro)
+admin.site.register(Carros)

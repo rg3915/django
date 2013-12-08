@@ -3,7 +3,7 @@
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.http import HttpResponse
-from carros.models import Carro
+from carros.models import Carros
 from carros.forms import FormCarro
 
 #def index(request):
@@ -12,7 +12,7 @@ from carros.forms import FormCarro
 #		})
 
 def lista(request):
-	lista_itens = Carro.objects.all()
+	lista_itens = Carros.objects.all()
 	return render_to_response('lista.html', {'carros': lista_itens},
 		context_instance=RequestContext(request))
 
