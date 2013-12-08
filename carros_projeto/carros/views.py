@@ -3,8 +3,8 @@
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.http import HttpResponse
-from carros.models import Carros
-from carros.forms import FormCarro
+from carros.models import * #Carros
+from carros.forms import * #FormCarro
 
 #def index(request):
 #	return render_to_response('index.html',{
