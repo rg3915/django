@@ -17,4 +17,7 @@ urlpatterns = patterns('',
     url(r'^$', 'carros.views.lista'),
     url(r'adiciona/$', 'carros.views.adiciona'),
     url(r'item/(?P<nr_item>\d+)/$', 'carros.views.item'),
+    url(r'listamarca/$', 'carros.views.listaMarca'),
+    url(r'adicionamarca/$', 'carros.views.adicionaMarca'),
+    url(r'adicionamodelo/$', 'carros.views.adicionaModelo'),
 )
