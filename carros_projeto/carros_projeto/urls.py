@@ -14,10 +14,10 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', 'carros.views.lista'),
-    url(r'adiciona/$', 'carros.views.adiciona'),
-    url(r'item/(?P<nr_item>\d+)/$', 'carros.views.item'),
-    url(r'listamarca/$', 'carros.views.listaMarca'),
-    url(r'adicionamarca/$', 'carros.views.adicionaMarca'),
-    url(r'adicionamodelo/$', 'carros.views.adicionaModelo'),
+    url(r'^$', 'carros.views.lista', name='lista_carro'),
+    url(r'adiciona/$', 'carros.views.adiciona', name='adiciona_carro'),
+    url(r'item/(?P<nr_item>\d+)/$', 'carros.views.item', name='item_carro'),
+    url(r'listamarca/$', 'carros.views.listaMarca', name='lista_marca'),
+    url(r'adicionamarca/$', 'carros.views.adicionaMarca', name='adiciona_marca'),
+    url(r'adicionamodelo/$', 'carros.views.adicionaModelo', name='adiciona_modelo'),
 )
