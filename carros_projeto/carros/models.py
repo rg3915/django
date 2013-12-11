@@ -24,7 +24,7 @@ class modelos(models.Model):
 
 class Carros(models.Model):
 	veiculo = models.CharField('Veículo',max_length=50)
-	modelo = models.ForeignKey(modelos	)
+	modelo = models.ForeignKey(modelos)
 	preco = models.DecimalField('Preço', max_digits=8, decimal_places=2)
 
 	class Meta:
