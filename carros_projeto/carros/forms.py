@@ -3,14 +3,14 @@
 from django import forms
 from models import *
 
-class FormCarro(forms.ModelForm):
+class FormVeiculo(forms.ModelForm):
 	class Meta:
-		model = Carros
+		model = Veiculo
 
 class FormMarca(forms.ModelForm):
 	class Meta:
-		model = marcas
+		model = Marca
 
 class FormModelo(forms.ModelForm):
 	class Meta:
-		model = modelos
+		model = Modelo
