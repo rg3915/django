@@ -6,64 +6,78 @@ from django.http import HttpResponse
 from carros.models import *
 from carros.forms import *
 
-def index_view(request):
+def indexView(request):
 	return render_to_response('index.html',context_instance=RequestContext(request))
 
-def lista(request):
-	lista_itens = Carros.objects.all()
-	return render_to_response('lista.html', {'carros': lista_itens},
-		context_instance=RequestContext(request))
+def backOffice(request):
+	return render_to_response('back_office.html',context_instance=RequestContext(request))
 
 def listaMarca(request):
-	lista_itens = marcas.objects.all()
-	return render_to_response('listamarca.html', {'marcas': lista_itens},
+	lista_itens = Marca.objects.all()
+	return render_to_response('lista_marca.html', {'marcas': lista_itens},
 		context_instance=RequestContext(request))
 
 def listaModelo(request):
-	lista_itens = modelos.objects.all()
-	return render_to_response('listamodelo.html', {'modelos': lista_itens},
+	lista_itens = Modelo.objects.all()
+	return render_to_response('lista_modelo.html', {'modelos': lista_itens},
 		context_instance=RequestContext(request))
 
-def adiciona(request):
-	if request.method == 'POST':
-		form = FormCarro(request.POST, request.FILES)
-		if form.is_valid():
-			form.save()
-			return render_to_response("salvo.html", {})
-	else:
-		form = FormCarro()
-	return render_to_response("adiciona.html", {'form': form},
-		context_instance=RequestContext(request))
-
-def adicionaMarca(request):
-	if request.method == 'POST':
-		form = FormMarca(request.POST, request.FILES)
-		if form.is_valid():
-			form.save()
-			return render_to_response("salvomarca.html", {})
-	else:
-		form = FormMarca()
-	return render_to_response("adicionamarca.html", {'form': form},
-		context_instance=RequestContext(request))
-
-def adicionaModelo(request):
-	if request.method == 'POST':
-		form = FormModelo(request.POST, request.FILES)
-		if form.is_valid():
-			form.save()
-			return render_to_response("salvo.html", {})
-	else:
-		form = FormModelo()
-	return render_to_response("adicionamodelo.html", {'form': form},
-		context_instance=RequestContext(request))
-
-def item(request, nr_item):
-	item = get_object_or_404(Carro, pk=nr_item)
-	return render_to_response("item.html", {'item': item},
+def listaVeiculo(request):
+	lista_itens = Veiculo.objects.all()
+	return render_to_response('lista_veiculo.html', {'veiculos': lista_itens},
 		context_instance=RequestContext(request))
 
 def itemMarca(request, nr_item):
-	item = get_object_or_404(marca, pk=nr_item)
-	return render_to_response("itemmarca.html", {'item': item},
+	item = get_object_or_404(Marca, pk=nr_item)
+	return render_to_response("item_marca.html", {'item_marca': item},
 		context_instance=RequestContext(request))
 
+def itemModelo(request, nr_item):
+	item = get_object_or_404(Modelo, pk=nr_item)
+	return render_to_response("item_modelo.html", {'item_modelo': item},
+		context_instance=RequestContext(request))
+
+def itemVeiculo(request, nr_item):
+	item = get_object_or_404(Veiculo, pk=nr_item)
+	return render_to_response("item_veiculo.html", {'item_veiculo': item},
+		context_instance=RequestContext(request))
+
+def adicionaMarca(request):
+	info_enviado = False
+	if request.method == 'POST':
+		form = FormMarca(request.POST, request.FILES)
+		if form.is_valid():
+			info_enviado = True
+			form.save()
+	else:
+		form = FormMarca()
+	ctx = {'form': form, 'info_enviado':info_enviado}
+	return render_to_response("adiciona_marca.html", ctx,
+		context_instance=RequestContext(request))
+
+def adicionaModelo(request):
+	info_enviado = False
+	if request.method == 'POST':
+		form = FormModelo(request.POST, request.FILES)
+		if form.is_valid():
+			info_enviado = True
+			form.save()
+	else:
+		form = FormModelo()
+	ctx = {'form': form, 'info_enviado':info_enviado}
+	return render_to_response("adiciona_modelo.html", ctx,
+		context_instance=RequestContext(request))
+
+def adicionaVeiculo(request):
+	info_enviado = False
+	if request.method == 'POST':
+		form = FormVeiculo(request.POST, request.FILES)
+		if form.is_valid():
+			info_enviado = True
+			form.save()
+			# return render_to_response("salvo.html", {})
+	else:
+		form = FormVeiculo()
+	ctx = {'form': form, 'info_enviado':info_enviado}
+	return render_to_response("adiciona_veiculo.html", ctx,
+		context_instance=RequestContext(request))
