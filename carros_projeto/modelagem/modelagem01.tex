@@ -21,7 +21,6 @@
 	\node[relationship] (tem1) [right of=veiculo] {tem} edge node[auto,swap] {n} (veiculo);
 	\node[entity] (modelo) [right of=tem1] {Modelo} edge node[auto,swap] {1} (tem1);
 	\node[attribute] (Modelo) [right=1cm of modelo] {\key{Modelo}} edge (modelo);
-	%\node[attribute] (idMarcaFK) [below right of=modelo] {\key{idMarca}} edge (modelo);
 
 	%Marca
 	\node[relationship] (tem2) [above of=modelo] {tem} edge node[auto,swap] {n} (modelo);
