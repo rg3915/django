@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if info_enviado %}
+	<p>Dados salvos com sucesso</p>
+	<p><a href="{% url 'lista_marca' %}">Voltar para listagem</a></p>
+{% else %}
+	<form class="form-horizontal" action="" method="post">
+		{% csrf_token %}
+		{% include "form.html" %}
+		<div class="col-md-offset-1">
+			<button class="btn btn-primary" type="submit">Adicionar</button>
+		</div>
+	</form>
+{% endif %}
+
+{% endblock %}

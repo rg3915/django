@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p><a href="{% url 'adiciona_veiculo' %}">Adicionar novo item</a></p>
+<table class="table table-striped">
+	<thead>
+		<th>
+			<div><span>Veículo</span></div>
+			<div></div>
+		</th>
+		<tr>
+			<td>id</td>
+			<td>Veículo</td>
+			<td>Modelo</td>
+			<td>Preço</td>
+		</tr>
+	</thead>
+	<tbody>
+		{% for veiculo in veiculos %}
+				<tr>
+					<td><a href="/item_veiculo/{{ veiculo.id }}">{{ veiculo.id }}</a></td>
+					<td>{{ veiculo.veiculo }}</td>
+					<td>{{ veiculo.modelo }}</td>
+					<td>{{ veiculo.preco }}</td>
+				</tr>
+		{% empty %}
+			<li>Sem itens na lista</li>
+		{% endfor %}
+	</tbody>
+</table>
+
+{% endblock %}

@@ -18,25 +18,26 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Carros</a>
+          <a class="navbar-brand" href="{% url 'home' %}">Carros</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="{% url 'home' %}">Home</a></li>
             <li><a href="#">Contato</a></li>
-			<li><a href="#">Sobre</a></li>
-			<li><a href="#">Login</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Login</a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cadastro <b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li><a href="#">Usuário</a></li>
                     <li class="divider"></li>
                     <li class="dropdown-header">Carros</li>
-					<li><a href="{% url 'adiciona_marca' %}">Marca</a></li>
-					<li><a href="{% url 'adiciona_modelo' %}">Modelo</a></li>
-					<li><a href="{% url 'adiciona_carro' %}">Carro</a></li>
+                    <li><a href="{% url 'adiciona_marca' %}">Marca</a></li>
+                    <li><a href="{% url 'adiciona_modelo' %}">Modelo</a></li>
+                    <li><a href="{% url 'adiciona_veiculo' %}">Veículo</a></li>
                   </ul>
                 </li>
+      			<li><a href="{% url 'back_office' %}">Back-Office</a></li>
           </ul>
         </div><!-- /.nav-collapse -->
       </div><!-- /.container -->
