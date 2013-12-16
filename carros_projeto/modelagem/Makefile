@@ -8,13 +8,3 @@ preview:
 	latexmk -pdf -pvc modelagem01
 view:
 	evince modelagem01.pdf &
-pdfrela:
-	latexmk -pdf relacionamento01
-	latexmk -c
-	ls -la
-previewrela:
-	subl relacionamento01.tex
-	evince relacionamento01.pdf
-	latexmk -pdf -pvc relacionamento01
-viewrela:
-	evince relacionamento01.pdf
