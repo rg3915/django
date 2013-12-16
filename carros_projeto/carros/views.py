@@ -81,3 +81,4 @@ def adicionaVeiculo(request):
 	ctx = {'form': form, 'info_enviado':info_enviado}
 	return render_to_response("adiciona_veiculo.html", ctx,
 		context_instance=RequestContext(request))
+
