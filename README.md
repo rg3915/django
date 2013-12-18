@@ -13,4 +13,4 @@ O objetivo deste projeto é experimentar e testar o framework Django.
 
 **Classes**: em nomes compostos primeira minúscula e segunda maiúscula. Ex: listaVeiculo, adicionaVeiculo.
 
-**Templates**: nomes compostos minúsculos e separados com underline. Ex: lista_veiculo.html, adiciona_veiculo.html.
+**Templates**: nomes compostos minúsculos e separados com underline. Ex: lista_veiculo.html, adiciona_veiculo.html. Para **funções** usar a mesma convenção.
