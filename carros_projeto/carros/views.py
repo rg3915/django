@@ -3,6 +3,7 @@
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.http import HttpResponse
+from django.core.mail import EmailMultiAlternatives
 from carros.models import *
 from carros.forms import *
 
@@ -49,6 +50,13 @@ def adicionaMarca(request):
 		if form.is_valid():
 			info_enviado = True
 			form.save()
+
+			# enviando email
+			to_admin = 'regis.santos.100@gmail.com'
+			html_content = "Informação recebida"
+			msg = EmailMultiAlternatives('Correio de contato','html_content,'from@server.com',[to_admin])
+			msg.attach_alternative(html_content, 'text/html')
+			msg.send()
 	else:
 		form = FormMarca()
 	ctx = {'form': form, 'info_enviado':info_enviado}

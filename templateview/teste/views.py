@@ -1,8 +1,9 @@
 # encoding: utf-8
 
 from django.shortcuts import render_to_response
-from django.views.generic import TemplateView, ListView, FormView
+from django.views.generic import TemplateView, ListView
 #from django.views.generic.edit import FormView
+from django.views.generic.edit import CreateView
 
 from teste.models import Contato
 from teste.forms import ContatoForm
@@ -15,14 +16,16 @@ class index2(TemplateView):
 
 class Lista(ListView):
 	template_name = 'teste/lista.html'
+	#queryset = Contato.objects.all(),
 	model = Contato
 	context_object_name = 'nomes'
 
-class Criar(FormView):
+class Criar(CreateView):
 	template_name = 'teste/formulario.html'
 	form_class = ContatoForm
-	success_url = '/'
+	success_url = '../lista'
 
 	def form_valid(self, form):
-		print(self.request.POST['nome'])
+		# user = form.save() # usado com FormView
+		print(self.request.POST['sobrenome'])
 		return super(Criar, self).form_valid(form)

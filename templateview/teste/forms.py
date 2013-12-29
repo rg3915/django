@@ -1,8 +1,8 @@
 from django import forms
 from models import Contato
-#from django.contrib.auth.forms import UserCreationForm
 
-#class ContatoForm(UserCreationForm):
 class ContatoForm(forms.ModelForm):
+	email = forms.CharField(max_length=50) # campo extra no formulario
+
 	class Meta:
 		model = Contato
