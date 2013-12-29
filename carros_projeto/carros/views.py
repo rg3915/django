@@ -54,7 +54,7 @@ def adicionaMarca(request):
 			# enviando email
 			to_admin = 'regis.santos.100@gmail.com'
 			html_content = "Informação recebida"
-			msg = EmailMultiAlternatives('Correio de contato','html_content,'from@server.com',[to_admin])
+			msg = EmailMultiAlternatives('Correio de contato',html_content,'from@server.com',[to_admin])
 			msg.attach_alternative(html_content, 'text/html')
 			msg.send()
 	else:
