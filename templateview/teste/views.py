@@ -22,7 +22,8 @@ class Lista(ListView):
 
 class Criar(CreateView):
 	template_name = 'teste/formulario.html'
-	form_class = ContatoForm
+	model = Contato
+	#form_class = ContatoForm
 	success_url = '../lista'
 
 	def form_valid(self, form):

@@ -10,7 +10,6 @@ from carros.forms import *
 
 class index(TemplateView):
 	template_name='index.html'
-	#return render_to_response('index.html',context_instance=RequestContext(request))
 
 def backOffice(request):
 	return render_to_response('back_office.html',context_instance=RequestContext(request))
