@@ -1,14 +1,20 @@
+# encoding: utf-8
+
 from django.conf.urls import patterns, include, url
+from carros.views import *
+from carros.models import *
+from carros.forms import *
+
 import settings
 
-# Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^media/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.MEDIA_ROOT}),
-    url(r'^$', 'carros.views.indexView', name='home'),
+    url(r'^$', index.as_view(), name='home'),
+    #url(r'^$', 'carros.views.indexView', name='home'),
     url(r'back_office/$', 'carros.views.backOffice', name='back_office'),
     url(r'lista_veiculo/$', 'carros.views.listaVeiculo', name='lista_veiculo'),
     url(r'item_veiculo/(?P<nr_item>\d+)/$', 'carros.views.itemVeiculo', name='item_veiculo'),

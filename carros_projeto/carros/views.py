@@ -1,14 +1,16 @@
-# -*- encoding: utf-8 -*-
+# encoding: utf-8
 
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.http import HttpResponse
 from django.core.mail import EmailMultiAlternatives
+from django.views.generic import TemplateView
 from carros.models import *
 from carros.forms import *
 
-def indexView(request):
-	return render_to_response('index.html',context_instance=RequestContext(request))
+class index(TemplateView):
+	template_name='index.html'
+	#return render_to_response('index.html',context_instance=RequestContext(request))
 
 def backOffice(request):
 	return render_to_response('back_office.html',context_instance=RequestContext(request))
