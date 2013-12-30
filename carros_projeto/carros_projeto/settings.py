@@ -1,6 +1,6 @@
 # Django settings for carros_projeto project.
 import os, sys
-#PROJECT_ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 DEBUG = True
@@ -16,7 +16,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'carros',                      # Or path to database file if using sqlite3.
-        # The following settings are not used with sqlite3:
         'USER': 'root',
         'PASSWORD': '1234',
         'HOST': 'localhost',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
