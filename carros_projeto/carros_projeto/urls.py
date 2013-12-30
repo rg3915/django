@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+import settings
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -6,6 +7,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^media/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.MEDIA_ROOT}),
     url(r'^$', 'carros.views.indexView', name='home'),
     url(r'back_office/$', 'carros.views.backOffice', name='back_office'),
     url(r'lista_veiculo/$', 'carros.views.listaVeiculo', name='lista_veiculo'),

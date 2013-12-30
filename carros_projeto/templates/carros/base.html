@@ -3,7 +3,7 @@
 <!--	<link rel="stylesheet" media="screen" type="text/css" href="{{ STATIC_URL }}estilo.css" /> -->
 	<link rel="stylesheet" media="screen" type="text/css" href="{{ STATIC_URL }}bootstrap.css" />
 	<link rel="stylesheet" media="screen" type="text/css" href="{{ STATIC_URL }}offcanvas.css" />
-	<link rel="shortcut icon" href="{{ STATIC_URL }}/dist/docs-assets/ico/car.png">
+	<link rel="shortcut icon" href="{{ STATIC_URL }}dist/docs-assets/ico/car.png">
 	{% block title %}
 		<title>Carros</title>
 	{% endblock %}
@@ -44,8 +44,9 @@
     </div><!-- /.navbar -->
 
   <div class="container">
-	 {% block content %}
-
+   <img src="{{ MEDIA_URL }}img/django.jpg"/>
+   {% block content %}
+          
 	 {% endblock %}
   </div>
 

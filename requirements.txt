@@ -1,0 +1,5 @@
+apt-get install graphviz
+pygraphviz
+pyparsing==1.5.7
+pydot
+django-extensions
