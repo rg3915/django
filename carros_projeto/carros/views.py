@@ -4,30 +4,33 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.http import HttpResponse
 from django.core.mail import EmailMultiAlternatives
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from carros.models import *
 from carros.forms import *
 
 class index(TemplateView):
-	template_name='index.html'
+	template_name = 'index.html'
 
-def backOffice(request):
-	return render_to_response('back_office.html',context_instance=RequestContext(request))
+class backOffice(TemplateView):
+	template_name = 'back_office.html'
 
-def listaMarca(request):
-	lista_itens = Marca.objects.all()
-	return render_to_response('lista_marca.html', {'marcas': lista_itens},
-		context_instance=RequestContext(request))
+class listaMarca(ListView):
+	template_name = 'lista_marca.html'
+	model = Marca
+	context_object_name = 'marcas'
+	#lista_itens = Marca.objects.all()
+	#return render_to_response('lista_marca.html', {'marcas': lista_itens},
+	#	context_instance=RequestContext(request))
 
-def listaModelo(request):
-	lista_itens = Modelo.objects.all()
-	return render_to_response('lista_modelo.html', {'modelos': lista_itens},
-		context_instance=RequestContext(request))
+class listaModelo(ListView):
+	template_name = 'lista_modelo.html'
+	model = Modelo
+	context_object_name = 'modelos'
 
-def listaVeiculo(request):
-	lista_itens = Veiculo.objects.all()
-	return render_to_response('lista_veiculo.html', {'veiculos': lista_itens},
-		context_instance=RequestContext(request))
+class listaVeiculo(ListView):
+	template_name = 'lista_veiculo.html'
+	model = Veiculo
+	context_object_name = 'veiculo'
 
 def itemMarca(request, nr_item):
 	item = get_object_or_404(Marca, pk=nr_item)

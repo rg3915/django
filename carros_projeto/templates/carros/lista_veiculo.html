@@ -17,7 +17,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		{% for veiculo in veiculos %}
+		{% for veiculo in object_list %}
 				<tr>
 					<td><a href="/item_veiculo/{{ veiculo.id }}">{{ veiculo.id }}</a></td>
 					<td>{{ veiculo.veiculo }}</td>
