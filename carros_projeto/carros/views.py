@@ -4,7 +4,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.http import HttpResponse
 from django.core.mail import EmailMultiAlternatives
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, CreateView
 from carros.models import *
 from carros.forms import *
 
@@ -80,17 +80,31 @@ def adicionaModelo(request):
 	return render_to_response("adiciona_modelo.html", ctx,
 		context_instance=RequestContext(request))
 
-def adicionaVeiculo(request):
+class adicionaVeiculo(CreateView):
 	info_enviado = False
-	if request.method == 'POST':
-		form = FormVeiculo(request.POST, request.FILES)
-		if form.is_valid():
-			info_enviado = True
-			form.save()
-			# return render_to_response("salvo.html", {})
-	else:
-		form = FormVeiculo()
-	ctx = {'form': form, 'info_enviado':info_enviado}
-	return render_to_response("adiciona_veiculo.html", ctx,
-		context_instance=RequestContext(request))
+	template_name = 'adiciona_veiculo.html'
+	model = Veiculo
+	success_url = 'adiciona_veiculo'
+
+	def form_valid(self, form):
+		self.info_enviado = True
+		return super(adicionaVeiculo, self).form_valid(form)
+
+	def get_context_data(self, **kwargs):
+		ctx = super(adicionaVeiculo, self).get_context_data(**kwargs)
+		ctx['info_enviado'] = self.info_enviado
+		return ctx
+
+	# info_enviado = False
+	# if request.method == 'POST':
+	# 	form = FormVeiculo(request.POST, request.FILES)
+	# 	if form.is_valid():
+	# 		info_enviado = True
+	# 		form.save()
+	# 		# return render_to_response("salvo.html", {})
+	# else:
+	# 	form = FormVeiculo()
+	# ctx = {'form': form, 'info_enviado':info_enviado}
+	# return render_to_response("adiciona_veiculo.html", ctx,
+	# 	context_instance=RequestContext(request))
 
