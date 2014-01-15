@@ -2,9 +2,10 @@
 
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.core.mail import EmailMultiAlternatives
 from django.views.generic import TemplateView, ListView, CreateView
+from django.contrib.auth import login,logout,authenticate
 from carros.models import *
 from carros.forms import *
 
@@ -108,3 +109,26 @@ class adicionaVeiculo(CreateView):
 	# return render_to_response("adiciona_veiculo.html", ctx,
 	# 	context_instance=RequestContext(request))
 
+def login_view(request):
+	mensagem = ""
+	if request.user.is_authenticated():
+		return HttpResponseRedirect('/')
+	else:
+		if request.method == "POST":
+			form = LoginForm(request.POST)
+			if form.is_valid():
+				username = form.cleaned_data['Nome']
+				password = form.cleaned_data['Senha']
+				usuario = authenticate(username=username,password=password)
+				if usuario is not None and usuario.is_active:
+					login(request,usuario)
+					return HttpResponseRedirect('/')
+				else:
+					mensagem = "Usuario e/ou senha incorreta."
+	form = LoginForm()
+	ctx = {'form':form,'mensagem':mensagem}
+	return render_to_response("login.html",ctx,context_instance=RequestContext(request))
+
+def logout_view(request):
+	logout(request)
+	return HttpResponseRedirect('/')

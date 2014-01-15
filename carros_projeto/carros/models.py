@@ -34,10 +34,10 @@ class Veiculo(models.Model):
 	def __unicode__(self):
 		return self.veiculo
 
-	def moeda(self):
-		p = str(self.preco)
-		if p != None:
-			import locale
-			locale.setlocale( locale.LC_ALL, '')
-			return locale.currency( p, grouping=True )
-		return ''
+	# def moeda(self):
+	# 	p = str(self.preco)
+	# 	if p != None:
+	# 		import locale
+	# 		locale.setlocale( locale.LC_ALL, '')
+	# 		return locale.currency( p, grouping=True )
+	# 	return ''
