@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-<p><a href="{% url 'adiciona_veiculo' %}">Adicionar novo item</a></p>
+{% if user.is_authenticated %}
+	<p><a href="{% url 'adiciona_veiculo' %}">Adicionar novo item</a></p>
+{% endif %}
 <table class="table table-striped">
 	<thead>
 		<th>
