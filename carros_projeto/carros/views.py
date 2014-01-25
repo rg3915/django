@@ -4,6 +4,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.mail import EmailMultiAlternatives
+from django.core.paginator import Paginator, EmptyPage, InvalidPage
 from django.views.generic import TemplateView, ListView, CreateView
 from django.contrib.auth import login,logout,authenticate
 from carros.models import *
@@ -28,10 +29,25 @@ class listaModelo(ListView):
 	model = Modelo
 	context_object_name = 'modelos'
 
-class listaVeiculo(ListView):
-	template_name = 'lista_veiculo.html'
-	model = Veiculo
-	context_object_name = 'veiculo'
+#class listaVeiculo(ListView):
+#	template_name = 'lista_veiculo.html'
+#	model = Veiculo
+#	context_object_name = 'veiculo'
+
+def listaVeiculo(request):
+	veiculo_list = Veiculo.objects.all()
+	paginator = Paginator(veiculo_list,5)
+	try:
+		#page = int(request.GET.get('page','1'))
+		page = int(pagina)
+	except:
+		page = 1
+	try:
+		veiculos = paginator.page(page)
+	except(EmptyPage,InvalidPage):
+		veiculos = paginator.page(paginator.num_pages)
+	ctx = {'veiculos':veiculos}
+	return render_to_response('lista_veiculo.html',ctx,context_instance=RequestContext(request))
 
 def itemMarca(request, nr_item):
 	item = get_object_or_404(Marca, pk=nr_item)
