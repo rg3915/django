@@ -23,8 +23,10 @@
 	\node[attribute] (idClienteFK) [right=.5cm  of Vendas] {\key{Cliente}} edge (Vendas);
 
 	\node[weak entity] (detVendas) [below of=tem] {detVendas} edge node[auto,swap] {n} (tem);
-	\node[attribute] (idVendasFK) [left of=detVendas,node distance=3cm] {\key{Vendas}} edge (detVendas);
-	\node[attribute] (quant) [below of=detVendas] {Quantidade} edge (detVendas);
+	
+	\node[attribute] (idVendasFK) [above left of=detVendas,node distance=3cm] {\key{Vendas}} edge (detVendas);
+	\node[attribute] (quant) [left=.5cm of detVendas] {Quantidade} edge (detVendas);
+	\node[attribute] (precoVenda) [below of=detVendas] {Pre\c co de Venda} edge (detVendas);
 	\node[relationship] (pede) [right of=detVendas] {pede} edge node[auto,swap] {1} (detVendas);
 
 	\node[entity] (produto) [right of=pede] {Produto} edge node[auto,swap] {n} (pede);
