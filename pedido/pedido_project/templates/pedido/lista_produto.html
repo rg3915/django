@@ -1,0 +1,10 @@
+{% extends 'pedido/base.html' %}
+{% block content %}
+	<ul>
+		{% for p in object_list %}
+			<li>{{ p.importado }} - {{ p.foradelinha }} - {{ p.categoria }} - {{ p.produto }} - {{ p.preco }} - </li>
+		{% empty %}
+			<li>Sem itens na lista.</li>
+		{% endfor %}
+	</ul>
+{% endblock %}
