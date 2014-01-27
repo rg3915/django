@@ -2,7 +2,7 @@
 
 Baseado no banco de dados [pedido][1] resolvi fazer este projeto para testar os recursos do Django.
 
-Inicialmente eu quero explorar as bibliotecas do [class based views][2] como [TemplateView][3] [ListView][4] e [FormView][5].
+Inicialmente eu quero explorar as bibliotecas do [class based views][2] como [TemplateView][3], [ListView][4] e [FormView][5].
 
 Um site com um tutorial legal é [GoDjango][6] e [DevCode.la][7]
 
