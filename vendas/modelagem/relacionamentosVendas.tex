@@ -15,16 +15,17 @@
 		- email \\
 		- fone \\
 	}{}
-	\umlclass[x=5,y=0,fill=green!20]{Vendas}{
+	\umlclass[x=5,y=0,fill=green!20]{Venda}{
 		- id \\
-		- dataVenda \\
+		- datavenda \\
 		+ cliente\_id \\
 	}{}
-	\umlclass[x=5,y=-5,fill=green!20]{detVendas}{
+	\umlclass[x=5,y=-5,fill=green!20]{detVenda}{
 		- id \\
-		+ Vendas\_id \\
+		+ venda\_id \\
 		+ produto\_id \\
 		- quantidade \\
+		- precovenda \\
 	}{}
 	\umlclass[x=10,y=-5]{Produto}{
 		- id \\
@@ -40,9 +41,9 @@
 		- categoria \\
 	}{}
 
-	\umlassoc{Cliente}{Vendas}
-	\umlassoc[geometry=-|-]{Vendas}{detVendas}
-	\umlassoc[geometry=-|-]{detVendas}{Produto}
+	\umlassoc{Cliente}{Venda}
+	\umlassoc[geometry=-|-]{Venda}{detVenda}
+	\umlassoc[geometry=-|-]{detVenda}{Produto}
 	\umlassoc[geometry=-|-]{Produto}{Categoria}
 \end{tikzpicture}
 
