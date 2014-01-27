@@ -1,0 +1,45 @@
+\documentclass{standalone}
+\usepackage{tikz-er2}
+\usetikzlibrary{positioning}
+
+\begin{document}
+
+\tikzstyle{every entity} = [fill=blue!20]
+\tikzstyle{every attribute} = [fill=yellow!20,node distance=2cm]
+\tikzstyle{every relationship} = [fill=red!20]
+\tikzstyle{every edge} = [link]
+\begin{tikzpicture}[node distance=3cm]
+	\node[entity] (cliente) {Cliente};
+	\node[attribute] (cpf) [above of=cliente] {CPF} edge (cliente);
+	\node[attribute] (nome) [above left of=cliente] {Nome} edge (cliente);
+	\node[attribute] (sobrenome) [left=.5cm of cliente] {Sobrenome} edge (cliente);
+	\node[attribute] (email) [below left of=cliente] {email} edge (cliente);
+	\node[attribute] (fone) [below of=cliente] {Fone} edge (cliente);
+	\node[relationship] (faz) [right of=cliente] {faz} edge node[auto,swap] {n} (cliente);
+	
+	\node[entity] (pedido) [right of=faz] {Pedido} edge node[auto,swap] {1} (faz);
+	\node[attribute] (dataPedido) [above right of=pedido,node distance=3cm] {Data do Pedido} edge (pedido);
+	\node[ident relationship] (tem) [below of=pedido] {tem} edge node[auto,swap] {1} (pedido);
+	\node[attribute] (idClienteFK) [right=.5cm  of pedido] {\key{Cliente}} edge (pedido);
+
+	\node[weak entity] (detPedido) [below of=tem] {detPedido} edge node[auto,swap] {n} (tem);
+	\node[attribute] (idPedidoFK) [left of=detPedido,node distance=3cm] {\key{Pedido}} edge (detPedido);
+	\node[attribute] (quant) [below of=detPedido] {Quantidade} edge (detPedido);
+	\node[relationship] (pede) [right of=detPedido] {pede} edge node[auto,swap] {1} (detPedido);
+
+	\node[entity] (produto) [right of=pede] {Produto} edge node[auto,swap] {n} (pede);
+	\node[attribute] (importado) [above left of=produto] {Importado} edge (produto);
+	\node[attribute] (linha) [above of=produto] {Fora de linha} edge (produto);
+	\node[attribute] (idCategoriaFK) [above right of=produto] {\key{Categoria}} edge (produto);
+	\node[attribute] (nomeproduto) [below left of=produto] {Produto} edge (produto);
+	\node[attribute] (preco) [below of=produto] {Preco} edge (produto);
+	\node[attribute] (imagem) [below right of=produto] {Imagem} edge (produto);
+
+	\node[attribute] (idProdutoFK) [below left of=detPedido,node distance=2cm] {\key{Produto}} edge (detPedido);
+	\node[relationship] (possui) [right of=produto] {possui} edge node[auto,swap] {n} (produto);
+
+	\node[entity] (categoria) [right of=possui] {Categoria} edge node[auto,swap] {1} (possui);
+	\node[attribute] (nomeCategoria) [above of=categoria] {Categoria} edge (categoria);
+\end{tikzpicture}
+
+\end{document}
