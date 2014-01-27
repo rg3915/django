@@ -1,0 +1,6 @@
+- o sistema vendas gerencia produtos por categoria.
+- cada produto possui: categoria, preço e imagem, além de ser importado ou não, e estar fora de linha ou não.
+- cada cliente possui: CPF, nome, sobrenome, email e telefone.
+- cada cliente pode fazer uma venda e cada venda pode conter vários produtos, cada um com sua quantidade e o valor total da venda.
+- o sistema deve pesquisar os produtos retornando o preço e a quantidade disponível.
+- o sistema deve gerar um relatório com total geral e estatísticas dos produtos mais vendidos.

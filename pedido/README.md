@@ -6,6 +6,8 @@ Inicialmente eu quero explorar as bibliotecas do [class based views][2] como [Te
 
 Um site com um tutorial legal é [GoDjango][6] e [DevCode.la][7]
 
+Usaremos o sqlite3.
+
 [1]: https://github.com/rg3915/banco_de_dados/tree/master/pedido
 [2]: https://docs.djangoproject.com/en/dev/ref/class-based-views/
 [3]: https://docs.djangoproject.com/en/dev/ref/class-based-views/base/#templateview
