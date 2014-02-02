@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p><a href="{% url 'adiciona_modelo' %}">Adicionar novo item</a></p>
+<table class="table table-striped">
+	<thead>
+		<th>
+			<div><span>Modelo</span></div>
+			<div></div>
+		</th>
+		<tr>
+			<td>Marca</td>
+			<td>Modelo</td>
+		</tr>
+	</thead>
+	<tbody>
+		{% for modelo in object_list %}
+				<tr>
+					<td>{{ modelo.marca }}</td>
+					<td>{{ modelo.modelo }}</td>
+				</tr>
+		{% empty %}
+			<li>Sem itens na lista</li>
+		{% endfor %}
+	</tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table>
+	<thead>
+		<th>
+			<div><span>Modelo</span></div>
+			<div></div>
+		</th>
+		<tr>
+			<td>Marca</td>
+			<td>Modelo</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{ item_modelo.marca }}</td>
+			<td>{{ item_modelo.modelo }}</td>
+		</tr>
+	</tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p><a href="{% url 'adiciona_marca' %}">Adicionar novo item</a></p>
+<table class="table table-striped">
+	<thead>
+		<th>
+			<div><span>Marca</span></div>
+			<div></div>
+		</th>
+	</thead>
+	<tbody>
+		{% for marca in object_list %}
+				<tr>
+					<td>{{ marca.marca }}</td>
+				</tr>
+		{% empty %}
+			<li>Sem itens na lista</li>
+		{% endfor %}
+	</tbody>
+</table>
+
+{% endblock %}

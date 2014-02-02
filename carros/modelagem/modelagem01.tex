@@ -1,0 +1,32 @@
+\documentclass{standalone}
+\usepackage{tikz-er2}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shadows}
+
+\begin{document}
+
+\tikzstyle{every entity} = [fill=blue!20]
+\tikzstyle{every attribute} = [fill=yellow!20,node distance=2cm]
+\tikzstyle{every relationship} = [fill=red!20]
+\tikzstyle{every edge} = [link]
+\tikzstyle{every isa} = [top color=white, bottom color=green!20, 
+                         draw=green!50!black!100, drop shadow]
+\begin{tikzpicture}[node distance=3cm]
+	%Veiculo
+	\node[entity] (veiculo) {Veiculo};
+	\node[attribute] (Veiculo) [above of=veiculo] {\key{Ve\'iculo}} edge (veiculo);
+	\node[attribute] (Preco) [left=1cm of veiculo] {Pre\c co} edge (veiculo);
+
+	%Modelo
+	\node[relationship] (tem1) [right of=veiculo] {tem} edge node[auto,swap] {n} (veiculo);
+	\node[entity] (modelo) [right of=tem1] {Modelo} edge node[auto,swap] {1} (tem1);
+	\node[attribute] (Modelo) [right=1cm of modelo] {\key{Modelo}} edge (modelo);
+
+	%Marca
+	\node[relationship] (tem2) [above of=modelo] {tem} edge node[auto,swap] {n} (modelo);
+	\node[entity] (marca) [above=1cm of tem2] {Marca} edge node[auto,swap] {1} (tem2);
+	\node[attribute] (Marca) [right=1cm of marca] {\key{Marca}} edge (marca);
+
+\end{tikzpicture}
+
+\end{document}

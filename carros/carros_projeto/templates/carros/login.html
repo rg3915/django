@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<form class="form-horizontal" action="" method="post">
+		{% csrf_token %}
+		{{ mensagem }}
+		{% include "form.html" %}
+		<div class="col-md-offset-1">
+			<button class="btn btn-primary" type="submit">Acessar</button>
+		</div>
+	</form>
+{% endblock %}

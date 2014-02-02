@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+	<p><a href="{% url 'adiciona_veiculo' %}">Adicionar novo item</a></p>
+{% endif %}
+<table class="table table-striped">
+	<thead>
+		<th>
+			<div><span>Veículo</span></div>
+			<div></div>
+		</th>
+		<tr>
+			<td>id</td>
+			<td>Veículo</td>
+			<td>Modelo</td>
+			<td>Preço</td>
+		</tr>
+	</thead>
+	<tbody>
+		{% for veiculo in object_list %}
+				<tr>
+					<td><a href="/item_veiculo/{{ veiculo.id }}">{{ veiculo.id }}</a></td>
+					<td>{{ veiculo.veiculo }}</td>
+					<td>{{ veiculo.modelo }}</td>
+					<td>{{ veiculo.preco }}</td>
+				</tr>
+		{% empty %}
+			<li>Sem itens na lista</li>
+		{% endfor %}
+	</tbody>
+</table>
+
+<div class="pagination">
+	<ul>
+	{% if veiculos.has_previous %}
+			<li><a href="?page={{ veiculos.previous_page_number }}">Previous</a></li>
+	{% endif %}
+	{% for pg in veiculos.paginator.page_range %}
+		{% if veiculos.number == pg %}
+			<li class="active"><a href="?page={{ pg }}">{{ pg }}</a></li>
+		{% else %}
+			<li><a href="?page={{ pg }}">{{ pg }}</a></li>
+		{% endif %}
+	{% endfor %}
+	{% if veiculos.has_next %}
+		<li><a href="?page={{ veiculos.next_page_number }}">Next</a></li>
+	{% endif %}
+	</ul>
+</div>
+
+{% endblock %}
