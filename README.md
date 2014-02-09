@@ -17,10 +17,6 @@ O objetivo deste projeto é experimentar e testar o framework Django.
 
 **Templates**: nomes compostos minúsculos e separados com underline. Ex: lista_veiculo.html, adiciona_veiculo.html. Para **funções** usar a mesma convenção.
 
-## Demo
-
-Testes a partir do canal do [Alex Dzul][0].
-
 ## Eventex
 
 Projeto usado no curso [Welcome to the Django][1].
