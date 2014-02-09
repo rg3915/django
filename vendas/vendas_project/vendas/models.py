@@ -58,5 +58,9 @@ class DetVenda(models.Model):
 	quantidade = models.IntegerField()
 	precovenda = models.DecimalField('Preço de venda', max_digits=8, decimal_places=2)
 
+	@property
+	def valor_total(self):
+		return self.precovenda * self.quantidade
+
 	def __unicode__(self):
 		return unicode(self.venda)
