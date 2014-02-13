@@ -1,5 +1,8 @@
 # coding: utf-8
-from django.shortcuts import render
+from django.views.generic import TemplateView, ListView
 
-def home(request):
-	return render(request, 'index.html')
+class index(TemplateView):
+	template_name = 'index.html'
+
+class sobre(TemplateView):
+	template_name = 'sobre.html'
