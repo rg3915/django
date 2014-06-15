@@ -9,9 +9,11 @@ O objetivo deste projeto é experimentar e testar o framework Django.
 
 **Título de entidades**: primeira maiúscula e no singular. Ex: Veiculo, Pedido, Usuario, Vendedor.
 
-**Classes**: em nomes compostos maiúscula e juntas. Ex: ListaProduto, AdicionaProduto. PEP 8[3]
+**Classes**: em nomes compostos maiúscula e juntas. Ex: ListaProduto, AdicionaProduto. (PEP 8).
 
-**Templates**: nomes compostos minúsculos e separados com underline. Ex: lista_produto.html, adiciona_produto.html. Para **funções** usar a mesma convenção. PEP 8[3]
+**Templates**: nomes compostos minúsculos e separados com underline.
+Ex: lista_produto.html, adiciona_produto.html.
+Para **funções** usar a mesma convenção. (PEP 8).
 
 ## Pedido
 
