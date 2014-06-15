@@ -12,7 +12,9 @@ O objetivo deste projeto é experimentar e testar o framework Django.
 **Classes**: em nomes compostos maiúscula e juntas. Ex: ListaProduto, AdicionaProduto. (PEP 8).
 
 **Templates**: nomes compostos minúsculos e separados com underline.
+
 Ex: lista_produto.html, adiciona_produto.html.
+
 Para **funções** usar a mesma convenção. (PEP 8).
 
 ## Pedido
