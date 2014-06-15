@@ -9,9 +9,9 @@ O objetivo deste projeto é experimentar e testar o framework Django.
 
 **Título de entidades**: primeira maiúscula e no singular. Ex: *Veiculo, Pedido, Usuario, Vendedor*.
 
-**Classes**: em nomes compostos maiúscula e juntas. Ex: *ListarProduto, AdicionarProduto*. [PEP 8][4].
+**Classes**: em nomes compostos maiúscula e juntas. Ex: *ListarProduto, AdicionarProduto* ([PEP 8][4]).
 
-**Funções**: nomes compostos minúsculos e separados com underline. Ex: *listar_produto, adicionar_produto* [PEP 8][4].
+**Funções**: nomes compostos minúsculos e separados com underline. Ex: *listar_produto, adicionar_produto* ([PEP 8][4]).
 
 **Templates**: usar a mesma convenção. Ex: *listar_produto.html, adicionar_produto.html*.
 
@@ -25,7 +25,7 @@ Projeto escrito em Django para explorar todos os recursos do framework junto com
 
 É pra implementar o que foi testado e aprovado no projeto Pedido.
 
-Referências:
+### Referências:
 
 [Django Project][0]
 
