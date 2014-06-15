@@ -1,10 +1,6 @@
 Django
 ======
 
-## Projetos Carros
-
-Trabalho de Desenvolvimento Web sobre o framework Django no SENAC.
-
 # Objetivo
 
 O objetivo deste projeto é experimentar e testar o framework Django.
@@ -13,9 +9,9 @@ O objetivo deste projeto é experimentar e testar o framework Django.
 
 **Título de entidades**: primeira maiúscula e no singular. Ex: Veiculo, Pedido, Usuario, Vendedor.
 
-**Classes**: em nomes compostos primeira minúscula e segunda maiúscula. Ex: listaVeiculo, adicionaVeiculo.
+**Classes**: em nomes compostos maiúscula e juntas. Ex: ListaProduto, AdicionaProduto. PEP 8[3]
 
-**Templates**: nomes compostos minúsculos e separados com underline. Ex: lista_veiculo.html, adiciona_veiculo.html. Para **funções** usar a mesma convenção.
+**Templates**: nomes compostos minúsculos e separados com underline. Ex: lista_produto.html, adiciona_produto.html. Para **funções** usar a mesma convenção. PEP 8[3]
 
 ## Pedido
 
@@ -29,3 +25,4 @@ Projeto escrito em Django para explorar todos os recursos do framework junto com
 
 [0]: http://www.youtube.com/playlist?list=PL2670DAAFCFECA138
 [1]: http://welcometothedjango.com.br/
+[3]: http://www.python.org.br/wiki/GuiaDeEstilo
