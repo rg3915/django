@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-from django import ModelForm
-# from .models import Author
+from django import forms
+from .models import Author
 
 
-class AuthorForm(ModelForm):
+class AuthorForm(forms.ModelForm):
 
     class Meta:
         model = Author

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # http://imasters.com.br/linguagens/py/como-alterar-campo-formulario-em-um-inline-formset/
-from models import Author, Book, AuthorForm
+from models import Author, Book
+from forms import AuthorForm
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
@@ -10,7 +11,7 @@ from django.views.generic.list_detail import object_list
 
 def authors_list(request):
     authors = Author.objects.all()
-    return object_list(request, queryset=authors, template_name="author_list.html")
+    return object_list(request, queryset=authors, template_name="index.html")
 
 
 def author_delete(request, pk):

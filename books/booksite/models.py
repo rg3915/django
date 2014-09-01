@@ -7,7 +7,7 @@ class Author(models.Model):
 
 
 class Book(models.Model):
-	    CATEGORIES = [
+    CATEGORIES = [
         ('romance', 'Romance'),
         ('fiction', u'Ficção'),
         ('suspense', 'Suspense')

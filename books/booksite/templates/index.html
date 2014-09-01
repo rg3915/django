@@ -1,54 +1,27 @@
 {% extends "base.html" %}
 
-{% block title %}
-
-	<script src="{{ STATIC_URL }}/js/jquery.js" ></script>
-	<script src="{{ STATIC_URL }}/js/underscore.js" ></script>
-	
-{% endblock title %}
-
 {% block content %}
+<h3>Lista de Autores</h3>
+<p class="pull-right"><a href="author/add" class="btn btn-primary">Adicionar</a></p>
+<table class="table table-hover table-bordered table-striped">
+    <thead>
+        <tr class="info">
+            <th class="info">ID</th>
+            <th class="info">Nome</th>
+            <th class="info">Qtde de livros</th>
+            <th class="info">Deletar?</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for author in object_list %}
+        <tr>
+            <td>{{ author.id }}</td>
+            <td><a href="author/edit/{{ author.id }}">{{ author.name }}</a></td>
+            <td>{{ author.book_set.count }}</td>
+            <td><a href="author/delete/{{ author.id }}">Deletar</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
-<script>
-  $('.add-book').click(function(ev){
-    ev.preventDefault();
-    var count = $('.books').children().length;
-    var tmplMarkup = $('#book-template').html();
-    var compiledTmpl = _.template(tmplMarkup, { id : count });
-    $('div.books').append(compiledTmpl);
-    // update form count
-    $('#id_books-TOTAL_FORMS').attr('value', count+1);
-  });
-</script>
-
-<h1>Add an Author and Books</h1>
-
-<form class="form-horizontal form-inline" method="post">
-  {% csrf_token %}
-  <legend>Author Details</legend>
-  {{ form }}
-  {{ formset.management_form }}
-  <legend>Books</legend>
-  <div class="books">
-    {% for book_form in formset %}
-      <div id="book-{{ forloop.counter0 }}">
-        {{ book_form }}
-      </div>
-    {% endfor %}
-  </div>
-  <div class="form-actions">
-     <a href="#" class="btn btn-info add-book">Add Book</a>
-     <button type="submit" class="btn btn-primary">Create Event</button>
-   </div>
- </form>
-
-<script type="text/html" id="book-template">
-  <div id="book-<%= id %>">
-    <label for="id_books-<%= id %>-title">Book Title:</label>
-    <input id="id_books-<%= id %>-title" type="text" name="books-<%= id %>-title" maxlength="100">
-    <input type="hidden" name="books-<%= id %>-author" id="id_books-<%= id %>-author">
-    <input type="hidden" name="books-<%= id %>-id" id="id_books-<%= id %>-id">
-  </div>
-</script>
-
-{% endblock content %}
+{% endblock %}

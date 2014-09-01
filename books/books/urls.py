@@ -6,9 +6,9 @@ admin.autodiscover()
 
 urlpatterns = patterns(
     'booksite.views',
-    # url(r'^$', 'home', name='home'),
-    url(r'^$', AddAuthorView.as_view(), name='home'),
-    # url(r'^blog/', include('blog.urls')),
-    # url(r'^managebooks/(?P<author_id>\d+)/$', 'manage_books', name='manage_books')
+    url(r'^$', 'authors_list'),
+    url(r'^author/add/$', 'author_add'),
+    url(r'^author/edit/(?P<pk>\d+)$', 'author_edit'),
+    url(r'^author/delete/(?P<pk>\d+)$', 'author_delete'),
     url(r'^admin/', include(admin.site.urls)),
 )
