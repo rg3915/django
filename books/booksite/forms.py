@@ -1,19 +1,9 @@
-# http://lab305.com/news/2012/jul/19/django-inline-formset-underscore/
-from django import forms
-from django.forms.models import inlineformset_factory
-from .models import Author, Book
+# -*- coding: utf-8 -*-
+from django import ModelForm
+# from .models import Author
 
 
-class AuthorForm(forms.ModelForm):
+class AuthorForm(ModelForm):
 
     class Meta:
         model = Author
-
-
-class BookForm(forms.ModelForm):
-
-    class Meta:
-        model = Book
-
-
-BookFormSet = inlineformset_factory(Author, Book)

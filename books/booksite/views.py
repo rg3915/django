@@ -1,46 +1,58 @@
-from django.views.generic import CreateView
-from django.shortcuts import redirect
+# -*- coding: utf-8 -*-
+# http://imasters.com.br/linguagens/py/como-alterar-campo-formulario-em-um-inline-formset/
+from models import Author, Book, AuthorForm
+from django.template import RequestContext
+from django.http import HttpResponseRedirect
+from django.shortcuts import render_to_response
+from django.forms.models import inlineformset_factory
+from django.views.generic.list_detail import object_list
 
-from .models import Author
-from .forms import AuthorForm, BookFormSet
+
+def authors_list(request):
+    authors = Author.objects.all()
+    return object_list(request, queryset=authors, template_name="author_list.html")
 
 
-class AddAuthorView(CreateView):
-    # template_name = 'create_author.html'
-    template_name = 'index.html'
-    form_class = AuthorForm
+def author_delete(request, pk):
+    Author.objects.get(pk=pk).delete()
+    return HttpResponseRedirect('/inlines/')
 
-    def get_context_data(self, **kwargs):
-        context = super(AddAuthorView, self).get_context_data(**kwargs)
-        if self.request.POST:
-            context['formset'] = BookFormSet(self.request.POST)
-        else:
-            context['formset'] = BookFormSet()
-        return context
 
-    def form_valid(self, form):
-        context = self.get_context_data()
-        formset = context['formset']
-        if formset.is_valid():
-            self.object = form.save()
-            formset.instance = self.object
-            formset.save()
-            # assuming your model has ``get_absolute_url`` defined.
-            return redirect(self.object.get_absolute_url())
-        else:
-            return self.render_to_response(self.get_context_data(form=form))
+def author_add(request):
+    author = Author()
+    return author_manager(request, author)
 
-# def manage_books(request, author_id):
-#     author = Author.objects.get(pk=author_id)
-#     BookInlineFormSet = inlineformset_factory(Author, Book)
-#     if request.method == "POST":
-#         formset = BookInlineFormSet(
-#             request.POST, request.FILES, instance=author)
-#         if formset.is_valid():
-#             formset.save()
-#             return HttpResponseRedirect(author.get_absolute_url())
-#         else:
-#             formset = BookInlineFormSet(instance=author)
-#         return render_to_response("manage_books.html", {
-#             "formset": formset,
-#         })
+
+def author_edit(request, pk):
+    author = Author.objects.get(pk=pk)
+    return author_manager(request, author)
+
+
+def author_manager(request, author):
+    BookInlineFormSet = inlineformset_factory(Author, Book, extra=1,
+                                              formfield_callback=add_category)
+
+    form = AuthorForm(request.POST or None, instance=author)
+    formset = BookInlineFormSet(request.POST or None, instance=author)
+
+    if form.is_valid() and formset.is_valid():
+        form.save()
+        formset.save()
+        return HttpResponseRedirect('/inlines/')
+
+    return render_to_response("manage_authors.html",
+                              {"formset": formset,
+                               "form": form},
+                              RequestContext(request))
+
+
+def add_category(field, **kwargs):
+        if field.name == 'category':
+            additional_choices = [
+                ('best_seller', 'Best Seller'),
+                ('self_help', 'Auto Ajuda')
+            ]
+            for choice in additional_choices:
+                if not choice in field.choices:
+                    field.choices.extend(additional_choices)
+        return field.formfield(**kwargs)
