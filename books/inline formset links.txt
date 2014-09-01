@@ -21,3 +21,8 @@ https://github.com/epicserve/inlineformset-example
 
 django crispy forms and django inline forms example (inlineformset_factory)
 https://gist.github.com/ibarovic/3092910
+
+http://imasters.com.br/linguagens/py/como-alterar-campo-formulario-em-um-inline-formset/
+
+Django class-based views with multiple inline formsets
+http://kevindias.com/writing/django-class-based-views-multiple-inline-formsets/
