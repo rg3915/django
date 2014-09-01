@@ -3,3 +3,8 @@
 *.vrb
 *.pyc
 *.db
+
+bin/
+include/
+lib/
+local/
