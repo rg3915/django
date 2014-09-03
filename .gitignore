@@ -3,6 +3,7 @@
 *.vrb
 *.pyc
 *.db
+*.sqlite3
 
 bin/
 include/
