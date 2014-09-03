@@ -3,7 +3,7 @@ Django
 
 # Objetivo
 
-O objetivo deste projeto é experimentar e testar o framework Django.
+O objetivo deste projeto é experimentar e testar o framework Django. O django.pdf é uma apresentação feita na faculdade.
 
 # Convenções
 
@@ -15,15 +15,9 @@ O objetivo deste projeto é experimentar e testar o framework Django.
 
 **Templates**: usar a mesma convenção. Ex: *listar_produto.html, adicionar_produto.html*.
 
-## Pedido
+# Books
 
-Projeto para testar os recursos do Django. É um projeto pra bagunçar e testar mesmo.
-
-## Vendas
-
-Projeto escrito em Django para explorar todos os recursos do framework junto com todas as possibilidades de regras de negócio requisitadas num projeto real.
-
-É pra implementar o que foi testado e aprovado no projeto Pedido.
+Projeto inicial para alguns testes.
 
 ### Referências:
 
@@ -35,8 +29,14 @@ Projeto escrito em Django para explorar todos os recursos do framework junto com
 
 [Welcome To The Django][3]
 
+[GoDjango][5]
+
+[Coding for Entrepreneurs][6]
+
 [0]: https://www.djangoproject.com/
 [1]: http://www.djangobrasil.org/
 [2]: http://www.youtube.com/playlist?list=PL2670DAAFCFECA138
 [3]: http://welcometothedjango.com.br/
 [4]: http://www.python.org.br/wiki/GuiaDeEstilo
+[5]: https://godjango.com/
+[6]: http://codingforentrepreneurs.com/
